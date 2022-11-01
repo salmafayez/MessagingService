@@ -1,0 +1,12 @@
+[package]
+name = "MessagingService"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+oracle = "0.5"
+rdkafka = { version = "0.25", features = ["cmake-build"] }
+tinytemplate = "1.2.1"
+rbatis = "4.0.39"
