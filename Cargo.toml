@@ -6,7 +6,24 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+#oracle
 oracle = "0.5"
-rdkafka = { version = "0.25", features = ["cmake-build"] }
-tinytemplate = "1.2.1"
+
+#orm
 rbatis = "4.0.39"
+rbdc-oracle = "0.1.1"
+
+tokio = { version = "1", features = ["full"] }
+log = "0.4"
+fast_log = "1.5"
+rbs = { version = "0.1"}
+
+#kafka
+rdkafka = { version = "0.25", features = ["cmake-build"] }
+
+#template enfine
+tinytemplate = "1.2.1"
+serde = { version = "1.0", features = ["derive"] }
+
+
+
