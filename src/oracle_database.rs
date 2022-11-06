@@ -13,7 +13,7 @@ pub struct Customer {
 }
 
 pub fn  getCustomerPage(pageNumber: &i32, c: &Connection) -> Vec<Customer> {
-    let sql = format!("{}{}{}", "select * FROM customer ORDER BY phone OFFSET ", pageNumber*100000, " ROWS FETCH NEXT 100000 ROWS ONLY");
+    let sql = format!("{}{}{}", "select * FROM customer ORDER BY phone OFFSET ", pageNumber*10000, " ROWS FETCH NEXT 10000 ROWS ONLY");
     let rows = c.query(&sql, &[]).expect("can't execute query");
     let mut customers : Vec<Customer> = vec![];
     for row_result in  rows {
@@ -46,7 +46,7 @@ pub fn getConnection() -> Connection{
 }
 
 pub fn getNumberOfPages(usersCount : &i32) -> i32{
-   usersCount/100000
+   usersCount/10000
 }
 
 pub fn buildCustomer(row: &Row) -> Customer{

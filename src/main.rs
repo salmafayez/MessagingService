@@ -1,3 +1,5 @@
+extern crate core;
+
 use kafka_consumer::consume;
 
 mod oracle_database;

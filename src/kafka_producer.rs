@@ -1,3 +1,5 @@
+use std::thread;
+use std::thread::Thread;
 use std::time::Duration;
 use rdkafka::ClientConfig;
 use rdkafka::producer::{BaseProducer, BaseRecord};
@@ -17,8 +19,8 @@ pub fn produce(brokers: &str, topic_name: &str, customers : &Vec<Customer>) {
         let message = create_message(&customer.name, &customer.phone);
         producer.send(
             BaseRecord::to(topic_name)
-                .payload(&format!("{}", message))
-                .key(&format!("Key {}", customer.name))
+                .payload(&format!("{:?}", thread::current().id()))
+                .key(&format!("Key {:?}", thread::current().id()))
         ).expect("error sending");
     }
 }
